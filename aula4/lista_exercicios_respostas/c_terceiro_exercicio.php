@@ -9,27 +9,27 @@ Crie um vetor de 3 números e ordene-os manualmente (sem usar sort()), comparand
 <html>
     <head>
         <meta charset="UTF-8">
-        <title> Terceiro Exercício </title>
+        <title>Terceiro Exercício</title>
     </head>
-
     <body>
-        <h3> Ordenando Números </h3>
-        <h3> Não consigo fazer esse </h3>
+        <h3>Ordenando Números</h3>
         <h3>
         <?php 
-                $nums = array(10,3,7);
-                $ordenado = []; 
-                 
-                for($indice = 0; $indice < 3; $indice++) {
-                    for($comparado = 0; $comparado < 3; $comparado++) {
-                        if ($nums[$indice] < $nums[$comparado]) {
-                            $ordenado[$indice] = $nums[$comparado]; 
-                        }
+            $nums = array(10, 3, 7);
+            $ordenado = $nums; 
+
+            for ($i = 0; $i < count($ordenado) - 1; $i++) {
+                for ($j = $i + 1; $j < count($ordenado); $j++) {
+                    if ($ordenado[$i] > $ordenado[$j]) {
+                        $temp = $ordenado[$i];
+                        $ordenado[$i] = $ordenado[$j];
+                        $ordenado[$j] = $temp;
                     }
                 }
+            }
 
-                echo $ordenado;
-            ?>
+            echo implode(", ", $ordenado);
+        ?>
         </h3>
     </body>
 </html>
