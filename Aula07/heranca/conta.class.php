@@ -1,11 +1,16 @@
 <?php
-    class Conta 
+    abstract class Conta
     {
         public function __construct(protected string $agencia = "", protected string $conta = "", protected float $saldo = 0.00) {}
-        
-		// Atributos privados devem ter um get e set, caso contrário o atributo não recebe dados
-		// Atributos protegidos só podem ser acessados pela própria classe e as classes filhas
-		
+
+        public function retirar($valor) {
+            if ($valor > 0 && $this->saldo >= $valor) {
+                $this->saldo -= $valor;
+            } else {
+                echo "Valor inválido ou saldo insuficiente.";
+            }
+        }
+
         // Métodos
         public function getAgencia() {
             return $this->agencia;
